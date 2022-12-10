@@ -51,7 +51,7 @@
 
 GoogleDriveをコンテナにマウントするコマンドを一度コメントアウトします．
 
-```Dockerfile
+```docker
 version: '3.8'
 services:
   mariadb:
@@ -135,7 +135,7 @@ cp -R mariadb/ /share/
 
 
 
-```Dockerfile
+```docker
 version: '3.8'
 services:
   mariadb:

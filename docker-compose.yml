@@ -11,6 +11,7 @@ services:
       - 'D:\GoogleDrive\Prj\Redmine\data\plugins:/usr/src/redmine/plugins'
       - 'D:\GoogleDrive\Prj\Redmine\data\themes:/usr/src/redmine/public/themes'
       
+      
   redmine:
     image: docker.io/bitnami/redmine:4.2.5
     environment:

@@ -1,0 +1,19 @@
+フォルダー パスの一覧:  ボリューム ボリューム
+ボリューム シリアル番号は 3E17-6CDD です
+D:.
+├─GoogleDrive           ← Google Driveのフォルダ
+│  └─Prj
+│  　 └─Redmine
+│  　     └─data
+│  　         ├─db      ← バックアップ兼データ保存フォルダ
+│  　         ├─files   ← バックアップ兼データ保存フォルダ
+│  　         ├─mariadb ← バックアップ兼データ保存フォルダ
+│  　         ├─plugins ← バックアップ兼データ保存フォルダ
+│  　         ├─share   ← コンテナからデータを引っ張る用のフォルダ
+│  　         └─themes  ← バックアップ兼データ保存フォルダ
+└─Prj
+    └─redmine_docker-compose
+        │  docker-compose.yml
+        │  LICENSE
+        │  README.md
+        └─docs

@@ -1,4 +1,4 @@
-version: '2'
+version: '3.8'
 services:
   mariadb:
     image: docker.io/bitnami/mariadb:10.3
@@ -7,7 +7,10 @@ services:
       - MARIADB_USER=bn_redmine
       - MARIADB_DATABASE=bitnami_redmine
     volumes:
-      - 'D:\GoogleDrive\Prj\Redmine\mariadb_data:/bitnami'
+      # コンテナからデータを引っ張る用のフォルダ
+      - 'D:\GoogleDrive\Prj\Redmine\data:/share'
+      # データ本体 GoogleDriveでバックアップ
+      - 'D:\GoogleDrive\Prj\Redmine\data\mariadb:/bitnami/mariadb'
       
   redmine:
     image: docker.io/bitnami/redmine:4.2.5
@@ -18,10 +21,15 @@ services:
     ports:
       - '8888:3000'
     volumes:
-      - 'D:\GoogleDrive\Prj\Redmine\redmine_data:/bitnami'
-      - 'D:\GoogleDrive\Prj\Redmine\bitnami_data:/opt/bitnami'
+      # コンテナからデータを引っ張る用のフォルダ
+      - 'D:\GoogleDrive\Prj\Redmine\data:/share'
+      # データ本体 GoogleDriveでバックアップ
+      - 'D:\GoogleDrive\Prj\Redmine\data\themes:/opt/bitnami/redmine/public/themes'
+      - 'D:\GoogleDrive\Prj\Redmine\data\db:/opt/bitnami/redmine/public/db'
+      - 'D:\GoogleDrive\Prj\Redmine\data\files:/opt/bitnami/redmine/public/files'
+      - 'D:\GoogleDrive\Prj\Redmine\data\plugins:/opt/bitnami/redmine/public/plugins'
+
     depends_on:
       - mariadb
     tty:
       true
-      

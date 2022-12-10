@@ -1,4 +1,4 @@
-version: '2'
+version: '3.8'
 services:
   mariadb:
     image: docker.io/bitnami/mariadb:10.3
@@ -7,7 +7,9 @@ services:
       - MARIADB_USER=bn_redmine
       - MARIADB_DATABASE=bitnami_redmine
     volumes:
-      - 'D:\GoogleDrive\Prj\Redmine\mariadb_data:/bitnami'
+      # - 'D:\GoogleDrive\Prj\Redmine\mariadb_data:/bitnami'
+      - 'D:\GoogleDrive\Prj\Redmine\data\plugins:/usr/src/redmine/plugins'
+      - 'D:\GoogleDrive\Prj\Redmine\data\themes:/usr/src/redmine/public/themes'
       
   redmine:
     image: docker.io/bitnami/redmine:4.2.5
@@ -18,8 +20,9 @@ services:
     ports:
       - '8888:3000'
     volumes:
-      - 'D:\GoogleDrive\Prj\Redmine\redmine_data:/bitnami'
-      - 'D:\GoogleDrive\Prj\Redmine\bitnami_data:/opt/bitnami'
+      # - 'D:\GoogleDrive\Prj\Redmine\redmine_data:/bitnami'
+      # - 'D:\GoogleDrive\Prj\Redmine\bitnami_data:/opt/bitnami'
+      - 'D:\GoogleDrive\Prj\Redmine\data\db:/var/lib/mysql'
     depends_on:
       - mariadb
     tty:

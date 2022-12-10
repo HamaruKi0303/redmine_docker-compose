@@ -7,7 +7,8 @@ services:
       - MARIADB_USER=bn_redmine
       - MARIADB_DATABASE=bitnami_redmine
     volumes:
-      - 'mariadb_data:/bitnami'
+      - 'D:\GoogleDrive\Prj\Redmine\mariadb_data:/bitnami'
+      
   redmine:
     image: docker.io/bitnami/redmine:4.2.5
     environment:
@@ -17,17 +18,10 @@ services:
     ports:
       - '8888:3000'
     volumes:
-      - 'redmine_data:/bitnami'
-      - 'bitnami_data:/opt/bitnami'
+      - 'D:\GoogleDrive\Prj\Redmine\redmine_data:/bitnami'
+      - 'D:\GoogleDrive\Prj\Redmine\bitnami_data:/opt/bitnami'
     depends_on:
       - mariadb
     tty:
       true
       
-volumes:
-  mariadb_data:
-    driver: local
-  redmine_data:
-    driver: local
-  bitnami_data:
-    driver: local
